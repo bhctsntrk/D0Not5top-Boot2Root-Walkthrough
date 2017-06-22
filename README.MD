@@ -29,7 +29,7 @@ Sonra telnet ile bu smtp'ye bağlanılabildiğini buluyorum ve bağlanıyorum.
 
 ![screenshot](screenshots/3.png)
 
-Bıkmış br halde tekrar bakarken internetteki örnekler ile benim interfacimde bir farklılık görüyorum.Bağlantıdan hemen sonra çıkan welcome mesajı internette diğer smtp bağlantı örneklerinde yok yani bu interface'e özel.Anlıyorum ki bu sayıların bir önemi var.İkili ikili göründüklerinden 16'lık tabanda olabilecekleri aklıma geliyor.Hex to Ascii deniyorum ve bingo.
+Bıkmış br halde tekrar bakarken internetteki örnekler ile benim interface'imde bir farklılık görüyorum.Bağlantıdan hemen sonra çıkan welcome mesajı internette diğer smtp bağlantı örneklerinde yok yani bu interface'e özel.Anlıyorum ki bu sayıların bir önemi var.İkili ikili göründüklerinden 16'lık tabanda olabilecekleri aklıma geliyor.Hex to Ascii deniyorum ve bingo.
 
 ![screenshot](screenshots/4.png)
 
@@ -129,7 +129,7 @@ Konu başlığında ki resme gözüm çarpıyor indirip binwalk, strings ve exif
 
 Forensic araştırmam sonuç vermiyor ne yazık ki ve resimde bir şey bulamıyorum.
 
-Sonra sitenin bir forum sitesi olduğunu anımsayıp üye olmaya çalışıyorum.Ama şartlatı kabul ettikten sonra şöyle bir hata alıyorum.
+Sonra sitenin bir forum sitesi olduğunu anımsayıp üye olmaya çalışıyorum.Ama şartları kabul ettikten sonra şöyle bir hata alıyorum.
 
 ![screenshot](screenshots/20.png)
 
@@ -175,7 +175,7 @@ Bundan sonra owasp'a geri dönüp başka ne bulabiliriz diye bakıyorum ama baş
 
 Elimde kalan seçenekler den ilki bulduğum her text yazılabilen alana sqlinjection kodları yazmak iken diğer seçenek ise bulduğumuz mail adresi.
 
-İnternetten bulduğum bir kaç sql kodu ile denemeler yapıyorum ama bir şey çıkartamıyorum.Mail adresine dönüyorum yapabileceklerim hakkında biraz araştırma yaparken mail adresinin sonunun **.ctf** ile bittiğini görüyorum daha önce    D0Not5topMe**.ctf** ismini /etc/hosts'un altına yazmıştık bunuda /etc/hosts'un içine yazmayı deniyorum.
+İnternetten bulduğum bir kaç sql kodu ile denemeler yapıyorum ama bir şey çıkartamıyorum.Mail adresine dönüyorum yapabileceklerim hakkında biraz araştırma yaparken mail adresinin sonunun **.ctf** ile bittiğini görüyorum daha önce D0Not5topMe.ctf ismini /etc/hosts'un altına yazmıştık ve onun snuda .ctf ile bitiyordu bunuda /etc/hosts'un içine yazmayı deniyorum.
 
 ![screenshot](screenshots/26.png)
 
@@ -201,7 +201,7 @@ Vee yeni bir oyun :D
 
 ![screenshot](screenshots/30.png)
 
-Üstteki oyun için bahsettiğim senaryolar burada da geçerli sayılır diyerek oyunu oynamaya başlıyorum.Arkaplanda bazı rakamlar var ve düşerseniz yine br uzantı görnüp kayboluyor.Kali de oyunu 10-5 fps ile oynayabildiğim için(Malesef :() ayarları **low**'a getiriyorum böylece rakamlarda da daha iyi ayırt edilebiliyor.
+Üstteki oyun için bahsettiğim senaryolar burada da geçerli sayılır diyerek oyunu oynamaya başlıyorum.Arkaplanda bazı rakamlar var ve düşerseniz yine bir uzantı görünüp kayboluyor.Kali de oyunu 10-5 fps ile oynayabildiğim için ( Malesef =( ) ayarları **low**'a getiriyorum böylece rakamlarda da daha iyi ayırt edilebiliyor.
 
 ![screenshot](screenshots/31.png)
 
@@ -348,7 +348,7 @@ Kısaca sen burtieo değilsin diyerek kapıyı gösteriyor.Son girişin 1 Nisand
 
 Ama en azından insaflı davranıp bir aded kriptolu metin veriyor bize.
 
-TRACE: sshPr0xy.py line:550 <CODE>U2FsdGVkX1/vv715OGrvv73vv73vv71Sa3cwTmw4Mk9uQnhjR1F5YW1adU5ISjFjVEZ2WW5sMk0zUm9kemcwT0hSbE5qZDBaV3BsZVNBS++/ve+/ve+/vWnvv704OCQmCg==</CODE>
+TRACE: sshPr0xy.py line:550 <CODE>U2FsdGVkX1vv715OGrvv73vv73vv71Sa3cwTmw4Mk9uQnhjR1F5YW1adU5ISjFjVEZ2WW5sMk0zUm9kemcwT0hSbE5qZDBaV3BsZVNBS++/ve+/ve+/vWnvv704OCQmCg==</CODE>
 
 Tahmin edebilceğiniz gibi bu bir Base64.Sonunda **==** olması kendini hemen belli ediyor.Base64'lerde **=** bazı durumlarda algoritmayı tamamlamak için kullnılır.
 
@@ -368,7 +368,7 @@ SSH brute force için Hydra, Medusa, Ncrack gibi elimizde bol seçenek mevcut.Hy
 
     hydra -t 32 -l burtieo -P /usr/share/wordlists/rockyou.txt 10.0.2.9 ssh 
 
-Gerçekten uzun bir zaman sonra buluyoruz parolayı
+Gerçekten uzun(neredeyse 1 saat) bir zaman sonra buluyoruz parolayı
     
 ![screenshot](screenshots/49.png)
 
@@ -388,7 +388,7 @@ Hiç bir komutun çalışmadığı bir shelle düştüğümü farkediyorum çün
 
 Arasanız bulamazsınız böyle shell'i :(
 
-Bu noktadan sonra yapılabilecek şeyler bir şekilde yetkimi arttırmaya çalışmak ya da komutları bir şekilde çalıştırmak.NetCat ile shelli dinlediğim bir porttan kendime atmakta işe yarayabilir.İçinde düştüğüm shell :( **rbash** olarak geçiyor.İnternette bu shell ile ilgili açık bulmayıda deneyebilirim.
+Bu noktadan sonra yapılabilecek şeyler bir şekilde yetkimi arttırmaya çalışmak ya da komutları bir şekilde çalıştırmak.NetCat ile shell'i ; dinlediğim bir porttan kendime atmakta işe yarayabilir.Ayrıca içine düştüğüm shell :( **rbash** olarak geçiyor.İnternette bu shell ile ilgili açık bulmayıda deneyebilirim.
 
 Bu yazdıklarımı sırası ile yapmaya ve araştırmaya başlıyorum.
     
