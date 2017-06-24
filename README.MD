@@ -478,7 +478,7 @@ ve çalıştırmayı başarıyorum.20'den geriye doğru sayıyor ve sonunda ise 
 
 ![screenshot](screenshots/60.png)
     
-Sağı solu karıştırıyor ama yeni bir dosya ya da izin değişikliği göremiyorum makinenin içinde.Zaten her ne tetikleniyorsa 20 saniye sürdüğü rahatça anlaşılyor.Kilo Standart birim sisteminde 1000'e tekabül ediyor.Yani verilen sayı **10000** .10000 ile linux makinede arasında her hangi bir şekilde bağlantı kurmaya çalışırken bir zaman sonra başka vm çözümlerinde gördüğüm ,bazı tetikelemeler sonucu servislerin başka porta taşınması ,olayını hatırlıyorum.Hemen gidip 10000 portuna göz atıyorum.
+Sağı solu karıştırıyor ama yeni bir dosya ya da izin değişikliği göremiyorum makinenin içinde.Zaten her ne tetikleniyorsa 20 saniye sürdüğü rahatça anlaşılyor.Kilo Standart birim sisteminde 1000'e tekabül ediyor.Yani verilen sayı **10000** .10000 ile linux makine arasında her hangi bir şekilde bağlantı kurmaya çalışırken bir zaman sonra başka vm çözümlerinde gördüğüm ,bazı tetikelemeler sonucu servislerin başka porta taşınması ,olayını hatırlıyorum.Hemen gidip 10000 portuna göz atıyorum.
 
     nmap 10.0.2.9 -sV -p 10000
     
