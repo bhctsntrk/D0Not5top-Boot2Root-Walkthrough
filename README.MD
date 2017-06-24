@@ -544,6 +544,10 @@ Ve mutlu son
 
 ![screenshot](screenshots/68.png)
 
+![screenshot](screenshots/68-2.png)
+
+![screenshot](screenshots/68-3.png)
+
 Gerçi hala flagı vermemekte direniyor arkadaş çok yorgun ve bıkkın olduğumdan ayrıca perl hakkında hiç bir şey bilmediğimden scriptin ne yaptığını anlamaya çalışmıyorum sadece encode edilmiş gibi duran textin sürekli tekrar eden(ilk 7 satır) parçasını alıyor ve decode ediyorum ve sonunda bitiyor :S
 
 ![screenshot](screenshots/69.png)
